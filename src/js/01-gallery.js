@@ -28,17 +28,16 @@ function onClick(evt) {
     `<img src="${imgSource}" width="480" height="auto">`,
     {
       onShow: (instance) => {
-        document.addEventListener("keydown", escKeyPress);
+        document.addEventListener("keydown", closeModal);
       },
       onClose: (instance) => {
-        document.removeEventListener("keydown", escKeyPress);
+        document.removeEventListener("keydown", closeModal);
       },
     }
   );
-
   instance.show();
 
-  function escKeyPress(event) {
+  function closeModal(event) {
     if (event.key === "Escape") {
       instance.close();
     }
